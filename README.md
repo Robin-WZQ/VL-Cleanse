@@ -1,7 +1,8 @@
 # 🛡️ VL-Cleanse: Towards Unified Backdoor Defense for Vision-Language Pretrained Encoders
 
-> Zhongqi Wang, Jie Zhang*, Shiguang Shan, Xilin Chen<br>
-> *Corresponding author
+> [Zhongqi Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=Gi1brbgAAAAJ), [Jie Zhang*](https://scholar.google.com.hk/citations?user=hJAhF0sAAAAJ&hl=zh-CN), [Shiguang Shan](https://scholar.google.com.hk/citations?hl=zh-CN&user=Vkzd7MIAAAAJ), [Xilin Chen](https://scholar.google.com.hk/citations?hl=zh-CN&user=vVx2v20AAAAJ)
+>
+> *Corresponding Author
 
 VL-Cleanse is a unified framework for model-level backdoor identification, sample-level detection, and backdoor mitigation in vision-language pretrained (VLP) encoders. It recovers backdoor evidence with an assimilation-guided optimization objective and reuses the recovered feature, trigger embedding, and soft mask throughout the defense pipeline.
 
