@@ -167,14 +167,7 @@ def main():
     tokenizer = CLIPTokenizer.from_pretrained(args.model_name)
     
     # Load the backdoored model
-    if args.attack.lower() == "refool":
-        suffix = 2
-    elif args.attack.lower() == "pbcl":
-        suffix = 3
-    elif args.attack.lower() == "badvision_untargeted":
-        suffix = 8
-    else:
-        suffix = 3
+    suffix = 0
     ckpt_path = os.path.join(
         args.backdoor_model_root,
         args.attack,
