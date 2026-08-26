@@ -1,11 +1,10 @@
-# 🛡️ VL-Cleanse: Assimilation-Guided Backdoor Identification and Mitigation for Vision-Language Pretrained Encoders
+# 🛡️ VL-Cleanse: Towards Unified Backdoor Defense for Vision-Language Pretrained Encoders
 
 > Zhongqi Wang, Jie Zhang*, Shiguang Shan, Xilin Chen<br>
 > *Corresponding author
 
 VL-Cleanse is a unified framework for model-level backdoor identification, sample-level detection, and backdoor mitigation in vision-language pretrained (VLP) encoders. It recovers backdoor evidence with an assimilation-guided optimization objective and reuses the recovered feature, trigger embedding, and soft mask throughout the defense pipeline.
 
-> **Release scope.** The main scripts in this directory currently implement the visual-encoder pipeline with Hugging Face `CLIPVisionModel`/`CLIPModel`. Utilities for additional experimental settings are provided under `Utils/`.
 
 ## 🔥 News
 
@@ -16,9 +15,9 @@ VL-Cleanse is a unified framework for model-level backdoor identification, sampl
 
 VL-Cleanse follows a three-stage defense pipeline:
 
-1. **Model-level identification.** Optimize a continuous image probe and a differentiable soft mask on benign auxiliary images. Backdoored encoders exhibit distinctive assimilation and convergence behavior.
-2. **Sample-level detection.** Reuse the recovered backdoor feature as a lightweight signature and score input images by feature similarity.
-3. **Model mitigation.** Reuse the recovered trigger embedding and mask to construct reversed samples, then fine-tune the compromised visual encoder with a small clean image-text set.
+1. **Backdoor Model identification.** Optimize a continuous image probe and a differentiable soft mask on benign auxiliary images. Backdoored encoders exhibit distinctive assimilation and convergence behavior.
+2. **Backdoor Sample detection.** Reuse the recovered backdoor feature as a lightweight signature and score input images by feature similarity.
+3. **Backdoor Model mitigation.** Reuse the recovered trigger embedding and mask to construct reversed samples, then fine-tune the compromised visual encoder with a small clean image-text set.
 
 ## 🧭 Getting Started
 
@@ -48,7 +47,7 @@ pip install torch torchvision
 pip install transformers numpy pillow tqdm matplotlib scikit-learn
 ```
 
-The optional scripts in `Utils/` may additionally require:
+The optional scripts may additionally require:
 
 ```bash
 pip install diffusers sentence-transformers
@@ -229,13 +228,6 @@ BadVision, BadVision_untargeted, badencoder, PBCL, WB, DRUPE,
 badnet, sig, blended, wanet, refool
 ```
 
-The current mitigation script selects checkpoint IDs according to the following built-in mapping:
-
-- `refool` → `poisoned_model_2`
-- `PBCL` → `poisoned_model_3`
-- `BadVision_untargeted` → `poisoned_model_8`
-- all other supported attacks → `poisoned_model_3`
-
 Make sure both the downloaded model and recovered evidence use the corresponding checkpoint ID. Mitigated weights are saved after every epoch under:
 
 ```text
@@ -247,13 +239,6 @@ Mitigation/Post_training/VL-Cleanse/Models/
         └── ...
 ```
 
-## ⚠️ Notes
-
-- Checkpoint architecture and `--base_model_name` must match.
-- Directory names and capitalization must match the selected attack name, especially on Linux.
-- The default device values in some scripts reflect a multi-GPU research server. Pass `--device cuda:0` or another available device explicitly.
-- `model_identification.py` currently expects image files directly inside `Train_data/`.
-- Several scripts under `Utils/` retain experiment-specific default paths. Pass their command-line path arguments or update those defaults before use.
 
 ## 📄 Citation
 
