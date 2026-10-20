@@ -5,7 +5,7 @@
 > *Corresponding Author
 
 <div align=center>
-<img src='https://github.com/Robin-WZQ/VL-Cleanse/blob/main/6_Method.png' width=500>
+<img src='https://github.com/Robin-WZQ/VL-Cleanse/blob/main/6_Method.png' width=600>
 </div>
 
 
