@@ -4,6 +4,11 @@
 >
 > *Corresponding Author
 
+<div align=center>
+<img src='https://github.com/Robin-WZQ/VL-Cleanse/blob/main/6_Method.pdf' width=500>
+</div>
+
+
 VL-Cleanse is a unified framework for model-level backdoor identification, sample-level detection, and backdoor mitigation in vision-language pretrained (VLP) encoders. It recovers backdoor evidence with an assimilation-guided optimization objective and reuses the recovered feature, trigger embedding, and soft mask throughout the defense pipeline.
 
 
